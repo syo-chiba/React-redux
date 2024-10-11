@@ -4,7 +4,7 @@ import { increment, decrement } from '../redux/actions';
 
 const CounterRedux = () => {
   // グローバル状態を取得
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state.counter.count);
 
   // アクションを発行するためのディスパッチ関数
   const dispatch = useDispatch();

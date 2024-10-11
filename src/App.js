@@ -12,6 +12,10 @@ import CounterRedux from './components/CounterRedux';
 import { CounterProvider } from './context/CounterContext';
 import './App.css'; // 新しいCSSファイルをインポート
 
+// 3.Reduxをよりシンプルに使用できるRedux Toolkitとは
+import Products from './components/Products';
+import Cart from './components/Cart';
+
 const App = () => {
   return (
     <Router>
@@ -47,6 +51,16 @@ const App = () => {
                 }
               >
                 CounterRedux
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive ? 'active-link' : 'link'
+                }
+              >
+                Cart
               </NavLink>
             </li>
           </ul>
@@ -86,6 +100,21 @@ const App = () => {
                     <CounterRedux />
                   </div>
                 </CounterProvider>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <div style={{ display: 'flex', justifyContent: 'space-around', padding: '20px' }}>
+                  <div>
+                    <h1>Product List</h1>
+                    <Products />
+                  </div>
+                  <div>
+                    <h1>Your Cart</h1>
+                    <Cart />
+                  </div>
+                </div>
               }
             />
           </Routes>
